@@ -4,12 +4,25 @@ import {connect} from 'react-redux';
 import {logoutUser} from '../../actions/authActions';
 import Footer from './Footer';
 import {use} from 'passport';
+import Feed from './Feed';
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+    };
+  }
+
   onLogoutClick = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
+
+  componentDidMount() {
+    console.log('sadas');
+  }
 
   render() {
     const {user} = this.props.auth;
@@ -58,7 +71,7 @@ class Dashboard extends Component {
               </a>
             </li>
 
-            <li>
+            <li style={{marginRight: '0px'}}>
               <a href='#' onClick={this.onLogoutClick}>
                 <i class='Large material-icons'>exit_to_app</i>{' '}
               </a>

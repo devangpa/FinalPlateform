@@ -52,6 +52,9 @@ class Landing extends Component {
               </Link>
             </div>
           </div>
+          <div className='col s12 center-align'>
+            <i class='fa fa-facebook-official' aria-hidden='true'></i>
+          </div>
         </div>
       </div>
     );

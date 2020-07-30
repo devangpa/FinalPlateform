@@ -4,12 +4,7 @@ const Footer = () => {
     <div>
       <footer class='page-footer' style={{backgroundColor: '#2979FF'}}>
         <div class='footer-copyright'>
-          <div class='container'>
-            ©2020 Copyright Reserve With vorkInsta
-            <a class='grey-text text-lighten-4 right' href='#!'>
-              More Links
-            </a>
-          </div>
+          <div class='container'>©2020 Copyright Reserve With vorkInsta</div>
         </div>
       </footer>
     </div>
