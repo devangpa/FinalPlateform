@@ -1,0 +1,298 @@
+// Form on click open model
+05/08/2020
+
+import React, {Component} from 'react';
+import {Card} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
+import './App.css';
+import axios from 'axios';
+import Form from './form';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      slider: false,
+      show: false,
+      modeldata: [],
+      formmodel: false,
+      jobtitle: '',
+      jobdescription: '',
+      skillsrequire: '',
+      budget: Number,
+      userID: '5f23df0b27f48e0b34c6668d',
+    };
+  }
+
+  // clicked = (e) => {
+  //   this.state.show === false
+  //     ? this.setState({show: true})
+  //     : this.setState({show: false});
+  //   console.log(this.state.show);
+  // };
+
+  onChange = (e) => {
+    this.setState({[e.target.id]: e.target.value});
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+    const NewJOB = {
+      jobtitle: this.state.jobtitle,
+      jobdescription: this.state.jobdescription,
+      skillsrequire: this.state.skillsrequire,
+      budget: this.state.budget,
+      userID: this.state.userID,
+    };
+    console.log(NewJOB);
+  };
+
+  addform = () => {
+    this.state.formmodel === false
+      ? this.setState({formmodel: true})
+      : this.setState({formmodel: false});
+    console.log(this.state.formmodel);
+  };
+
+  close = (e) => {
+    this.setState({show: false});
+  };
+
+  getmodelid = async (e) => {
+    console.log(e.target.value);
+
+    const ID = e.target.value;
+
+    const ModelDATA = await this.state.data.filter((el) => {
+      return el._id === ID;
+    });
+    this.setState({show: true, modeldata: ModelDATA});
+    console.log(ModelDATA);
+  };
+
+  componentDidMount = async () => {
+    const fetchedData = await axios.get(
+      'http://localhost:5001/api/jobs/getjobs'
+    );
+    console.log(fetchedData.data.data);
+    const Data = await fetchedData.data.data.sort();
+    this.setState({data: Data});
+  };
+
+  render() {
+    return (
+      <div className='App'>
+        <hr />
+        {this.state.data.map((el) => {
+          return (
+            <div>
+              <a>
+                {' '}
+                <Card style={{width: '18rem'}}>
+                  <Card.Body>
+                    <Card.Title>{el.jobtitle}</Card.Title>
+                    <Card.Subtitle className='mb-2 text-muted'>
+                      BUdget {el.budget}
+                    </Card.Subtitle>
+                    <Card.Text>{el.jobdescription}</Card.Text>
+                    <Button
+                      variant='primary'
+                      type='button'
+                      class='btn btn-primary'
+                      data-toggle='modal'
+                      data-target='#exampleModal'
+                      value={el._id}
+                      onClick={this.getmodelid}
+                    >
+                      Know more
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </a>
+              <hr />
+            </div>
+          );
+        })}
+
+        {/* <button
+          type='button'
+          class='btn btn-primary'
+          data-toggle='modal'
+          data-target='#exampleModal'
+          onClick={this.clicked}
+        >
+          Launch demo modal
+        </button> */}
+
+        {this.state.show ? (
+          <div
+            class='modal fade'
+            id='exampleModal'
+            tabindex='-1'
+            aria-labelledby='exampleModalLabel'
+            aria-hidden='true'
+          >
+            <div class='modal-dialog'>
+              <div class='modal-content'>
+                <div class='modal-header'>
+                  <h5 class='modal-title' id='exampleModalLabel'>
+                    {this.state.modeldata[0].jobtitle}
+                  </h5>
+                  <button
+                    type='button'
+                    class='close'
+                    data-dismiss='modal'
+                    aria-label='Close'
+                    onClick={this.close}
+                  >
+                    <span aria-hidden='true'>&times;</span>
+                  </button>
+                </div>
+                <div class='modal-body'>
+                  {this.state.modeldata[0].jobdescription}
+                </div>
+                <div class='modal-footer'>
+                  <button
+                    type='button'
+                    class='btn btn-secondary'
+                    data-dismiss='modal'
+                    onClick={this.close}
+                  >
+                    Close
+                  </button>
+                  <button type='button' class='btn btn-primary'>
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
+        <hr />
+        <button
+          type='button'
+          class='btn btn-primary'
+          data-toggle='modal'
+          data-target='#exampleModal2'
+          onClick={this.addform}
+        >
+          Add JOB
+        </button>
+        <hr />
+
+        {this.state.formmodel ? (
+          <div
+            class='modal fade'
+            id='exampleModal2'
+            tabindex='-1'
+            aria-labelledby='exampleModalLabel'
+            aria-hidden='true'
+          >
+            <div class='modal-dialog'>
+              <div class='modal-content'>
+                <div class='modal-header'>
+                  <h5 class='modal-title' id='exampleModalLabel'>
+                    Add Job
+                  </h5>
+                  <button
+                    type='button'
+                    class='close'
+                    data-dismiss='modal'
+                    aria-label='Close'
+                  >
+                    <span aria-hidden='true'>&times;</span>
+                  </button>
+                </div>
+                <div class='modal-body'>
+                  <form onSubmit={this.onSubmit}>
+                    <div class='form-group'>
+                      <label for='exampleInputEmail1'>Job Title</label>
+
+                      <input
+                        class='form-control form-control-sm'
+                        type='text'
+                        placeholder='Job Title'
+                        onChange={this.onChange}
+                        value={this.state.jobtitle}
+                      />
+                    </div>
+                    <div class='form-group'>
+                      <label for='exampleInputEmail1'>Job Description</label>
+
+                      <input
+                        class='form-control form-control-sm'
+                        type='text'
+                        placeholder='Job Title'
+                        onChange={this.onChange}
+                        value={this.state.jobdescription}
+                      />
+                    </div>
+                    <div class='form-group'>
+                      <label for='exampleInputEmail1'>Skills</label>
+
+                      <input
+                        class='form-control form-control-sm'
+                        type='text'
+                        placeholder='Job Title'
+                        onChange={this.onChange}
+                        value={this.state.skillsrequire}
+                      />
+                    </div>
+                    <div class='form-group'>
+                      <label for='exampleInputEmail1'>BUdget</label>
+
+                      <input
+                        class='form-control form-control-sm'
+                        type='number'
+                        placeholder='Job Title'
+                        onChange={this.onChange}
+                        value={this.state.budget}
+                      />
+                    </div>
+
+                    <button type='submit' class='btn btn-primary'>
+                      Add JOB
+                    </button>
+                  </form>
+                </div>
+                <div class='modal-footer'>
+                  <button
+                    type='button'
+                    class='btn btn-secondary'
+                    data-dismiss='modal'
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+        <hr />
+        <Form />
+      </div>
+    );
+  }
+}
+
+export default App;
+
+{
+  /* <Card style={{ width: 'rem' }}>
+  <Card.Body>
+    <Card.Title>Requrement For Node js</Card.Title>
+    <Card.Text>
+      we need someone who with 20 year of experience in Node js
+    </Card.Text>
+    <Card.Text>
+      <b>Budget: 20$</b>
+    </Card.Text>
+    <Button variant="primary">Know-More</Button>
+  </Card.Body>
+</Card> */
+}
+
