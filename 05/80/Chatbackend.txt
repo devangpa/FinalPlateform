@@ -1,0 +1,86 @@
+////_____________________________MOdel
+const mongoose = require('mongoose');
+
+// Create Schema
+const Chat = mongoose.Schema({
+  SenderuserName: {
+    type: String,
+    require: true,
+  },
+  senderuserid: {
+    type: String,
+    require: true,
+  },
+  ReciverUsername: {
+    type: String,
+    require: true,
+  },
+  ReciverUserid: {
+    type: String,
+    require: true,
+  },
+  Message: {
+    type: String,
+    require: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+});
+module.exports = mongoose.model('chat', Chat);
+
+////____________________________________Controller
+
+
+const Chat = require('../model/chat');
+
+exports.getchatbyID = async (req, res) => {
+  const data = req.body;
+  try {
+    const findqury = await Chat.find({
+      $and: [
+        {senderuserid: req.body.senderuserid},
+        {ReciverUserid: req.body.ReciverUserid},
+      ],
+    })
+      .sort({_id: -1})
+      .limit(10);
+
+    console.log(findqury);
+
+    res
+      .status(200)
+      .send({Message: 'Not able getmessages message', data: findqury});
+  } catch (error) {
+    res.status(400).send({Message: 'Not able getmessages message', data: err});
+  }
+};
+
+exports.savechatdata = async (req, res) => {
+  const data = req.body;
+  console.log(data);
+
+  try {
+    const createmessage = await Chat.create(data);
+
+    res
+      .status(200)
+      .send({Message: 'send message succefully', data: createmessage});
+  } catch (error) {
+    res.status(400).send({Message: 'Not able send message', data: error});
+  }
+};
+
+
+
+////__________________________API
+
+
+module.exports = (app) => {
+  const chatcontroller = require('../../controller/chatcontroller');
+  app.post('/postchatmessage', chatcontroller.savechatdata);
+  app.post('/getchatdata', chatcontroller.getchatbyID);
+};
+
+
