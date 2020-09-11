@@ -1,0 +1,602 @@
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+
+class Landing extends Component {
+  render() {
+    return (
+      <div class='container'>
+        <div
+          class='container'
+          style={{
+            width: '1200px',
+            height: '50px',
+            backgroundColor: '#E5E5E5',
+          }}
+        >
+          <div
+            class='container'
+            style={{
+              width: '310px',
+              height: '50px',
+              float: 'left',
+            }}
+          >
+            <img
+              src='https://i.ibb.co/j3Q67XD/Vork-Insta-monogram.png'
+              alt='dev'
+              border='0'
+              style={{height: '25px', width: '25px', marginTop: '10px'}}
+            />
+            <h6
+              style={{
+                marginTop: '-28px',
+                marginLeft: '26px',
+                color: '#FFFFFF',
+                fontFamily: 'Noto Sans',
+                letterSpacing: '2px',
+              }}
+            >
+              {' '}
+              ORKINSTA
+            </h6>
+            <h6
+              style={{
+                marginTop: '-10px',
+                marginLeft: '26px',
+                fontSize: '10px',
+                color: '#FFFFFF',
+                fontFamily: 'Noto Sans',
+                letterSpacing: '2px',
+              }}
+            >
+              {' '}
+              WE BUILD ENTREPRENEURS
+            </h6>
+          </div>
+          <div
+            class='container'
+            style={{
+              width: '800px',
+              height: '50px',
+              backgroundColor: '#E5E5E5',
+              float: 'right',
+            }}
+          >
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#E5E5E5',
+                float: 'left',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#E5E5E5',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  Home
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#E5E5E5',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#E5E5E5',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  AboutUs
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#E5E5E5',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#E5E5E5',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  Services
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#E5E5E5',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#E5E5E5',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  blog
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#E5E5E5',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#E5E5E5',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  contact
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#E5E5E5',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#FFFFFF',
+                  height: '30px',
+                  textAlign: 'center',
+                  borderRadius: '50px',
+                }}
+              >
+                <Link to='/login'>
+                  {' '}
+                  <h6
+                    style={{
+                      fontSize: '12px',
+                      fontFamily: 'Montserrat',
+                      paddingTop: '8px',
+                      color: 'black',
+                    }}
+                  >
+                    LOGIN
+                  </h6>
+                </Link>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#E5E5E5',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#FFFFFF',
+                  height: '30px',
+                  textAlign: 'center',
+                  borderRadius: '50px',
+                }}
+              >
+                <Link to='/register'>
+                  {' '}
+                  <h6
+                    style={{
+                      fontSize: '12px',
+                      fontFamily: 'Montserrat',
+                      paddingTop: '8px',
+                      color: 'black',
+                    }}
+                  >
+                    SIGNUP
+                  </h6>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class='containar'
+          style={{width: '1140px', height: '20px', backgroundColor: '#FFFFFF'}}
+        ></div>
+        <div
+          class='containar'
+          style={{width: '1140px', height: '300px', backgroundColor: '#80AEFF'}}
+        >
+          <img
+            src='https://i.ibb.co/Yd3RXnG/Vorkinstaheader-image.jpg'
+            alt='dev'
+            border='0'
+            style={{
+              float: 'right',
+              height: '300px',
+              width: '570px',
+              opacity: '70%',
+            }}
+          />
+          <div
+            class='containar'
+            style={{
+              float: 'left',
+              height: '300px',
+              paddingLeft: '80px',
+              paddingTop: '30px',
+            }}
+          >
+            <h6
+              style={{
+                fontFamily: 'Montserrat',
+                fontStyle: 'normal',
+                fontWeight: '900',
+                fontSize: '30px',
+                color: '#FFFFFF',
+              }}
+            >
+              <b>+</b> CONNECT
+            </h6>
+            <br />
+            <h6
+              style={{
+                fontFamily: 'Montserrat',
+                fontStyle: 'normal',
+                fontWeight: '900',
+                fontSize: '30px',
+                color: '#FFFFFF',
+                marginTop: '-35px',
+              }}
+            >
+              <b style={{fontWeight: '900', fontSize: '30px'}}>+</b> COLLABORATE
+            </h6>
+            <br />
+            <h6
+              style={{
+                fontFamily: 'Montserrat',
+                fontStyle: 'normal',
+                fontWeight: '900',
+                fontSize: '30px',
+                color: '#FFFFFF',
+                marginTop: '-35px',
+              }}
+            >
+              + CONVARGE
+            </h6>
+            <br />
+            <h6
+              style={{
+                fontFamily: 'Montserrat',
+                fontStyle: 'normal',
+                fontWeight: '30',
+                fontSize: '20px',
+                color: '#0D3451',
+                marginTop: '-35px',
+              }}
+            >
+              Bring your IDEAS to live with us.
+            </h6>
+            <br />
+            <h6
+              style={{
+                fontFamily: 'Montserrat',
+                fontStyle: 'normal',
+                fontWeight: '30',
+                fontSize: '20px',
+                color: '#0D3451',
+                marginTop: '-20px',
+              }}
+            >
+              Signup for{' '}
+              <b style={{fontWeight: 'bolder', fontSize: '24px'}}>FREE</b>
+            </h6>
+            <br />
+            <div class='containar'>
+              <div class='row'>
+                <div class='col-6'>
+                  <div
+                    class='container'
+                    style={{
+                      marginTop: '10px',
+                      backgroundColor: '#FFFFFF',
+                      height: '30px',
+                      textAlign: 'center',
+                      borderRadius: '50px',
+                    }}
+                  >
+                    <Link to='/register'>
+                      {' '}
+                      <h6
+                        style={{
+                          fontSize: '12px',
+                          fontFamily: 'Montserrat',
+                          paddingTop: '8px',
+                        }}
+                      >
+                        Freelancer
+                      </h6>
+                    </Link>
+                  </div>
+                </div>
+                <div class='col-6'>
+                  <div
+                    class='container'
+                    style={{
+                      marginTop: '10px',
+                      backgroundColor: '#FFFFFF',
+                      height: '30px',
+                      textAlign: 'center',
+                      borderRadius: '50px',
+                    }}
+                  >
+                    <Link to='/register'>
+                      {' '}
+                      <h6
+                        style={{
+                          fontSize: '12px',
+                          fontFamily: 'Montserrat',
+                          paddingTop: '8px',
+                        }}
+                      >
+                        Client
+                      </h6>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class='containar'
+          style={{width: '1140px', height: '100px', backgroundColor: '#FFFFFF'}}
+        >
+          <div class='row'>
+            <div class='col-6' style={{textAlign: 'center'}}>
+              <h1
+                style={{
+                  fontFamily: ' Montserrat',
+                  fontSize: '40px',
+                  marginTop: '25px',
+                }}
+              >
+                2,26,565
+              </h1>
+              <br />
+              <h6
+                style={{
+                  fontFamily: ' Montserrat',
+                  marginTop: '-30px',
+                  letterSpacing: '1px',
+                }}
+              >
+                COMMUNITY MEMBER
+              </h6>
+            </div>
+            <div class='col-6' style={{textAlign: 'center'}}>
+              <h1
+                style={{
+                  fontFamily: ' Montserrat',
+                  fontSize: '40px',
+                  marginTop: '25px',
+                }}
+              >
+                2,26,565
+              </h1>
+              <br />
+              <h6
+                style={{
+                  fontFamily: ' Montserrat',
+                  marginTop: '-30px',
+                  letterSpacing: '1px',
+                }}
+              >
+                TOTAL POSTED JOBS
+              </h6>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div
+          class='containar'
+          style={{
+            width: '1140px',
+            height: '170px',
+            backgroundColor: '#80AEFF',
+            textAlign: 'center',
+          }}
+        >
+          <div class='containar'>
+            <h3
+              style={{
+                color: '#FFFFFF',
+                fontFamily: 'Montserrat',
+                marginTop: '20px',
+              }}
+            >
+              Let's stay in touch
+            </h3>
+            <br />
+            <h6
+              style={{
+                color: 'black',
+                fontFamily: 'Montserrat',
+                marginTop: '-10px',
+              }}
+            >
+              Keep me up to date with content, updates, offers from{' '}
+              <b>VORKINSTA</b>
+            </h6>
+            <br />
+          </div>
+        </div>
+        <div
+          class='containar'
+          style={{
+            width: '1140px',
+            height: '20px',
+            backgroundColor: '#FFFFFF',
+          }}
+        >
+          <div class='row'>
+            <div class='col-2' style={{textAlign: 'left'}}>
+              <h6 style={{fontSize: '10px', paddingLeft: '60px'}}>
+                Terms and Conditions
+              </h6>
+            </div>
+            <div class='col-2' style={{textAlign: 'left'}}>
+              <h6 style={{fontSize: '10px', paddingLeft: '40px'}}>
+                Privacy Policy
+              </h6>
+            </div>
+            <div class='col-2' style={{textAlign: 'left'}}>
+              <h6 style={{fontSize: '10px', paddingLeft: '30px'}}>Help</h6>
+            </div>
+            <div class='col-2' style={{textAlign: 'left'}}>
+              <h6 style={{fontSize: '10px', paddingLeft: '20px'}}>
+                Vorkinsta Licenses
+              </h6>
+            </div>
+            <div class='col-2' style={{textAlign: 'left'}}>
+              <h6 style={{fontSize: '10px', paddingLeft: '10px'}}>Partners</h6>
+            </div>
+            <div class='col-2' style={{textAlign: 'left'}}>
+              <h6 style={{fontSize: '10px', paddingLeft: '10px'}}>LANGUAGE</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Landing;
+
+// <div class="row">
+// <div class="col-sm-3"></div>
+// <div class="col-sm-6">
+//   <div class="card" style={{ marginTop: "200px" }}>
+//     <div class="card-body">
+//       <a href="">
+//         <img
+//           src="https://i.ibb.co/2qT9Cqp/dev.png"
+//           alt="dev"
+//           border="0"
+//           style={{ marginLeft: "90px" }}
+//         />
+//       </a>
+//       <hr />
+//       <h5 style={{ marginLeft: "100px" }}>
+//         <b> vorkinsta We Build Entrpreneur</b>
+//       </h5>
+//       <div
+//         class="row"
+//         style={{ alignItems: "center", marginTop: "40px" }}
+//       >
+//         <div class="col-sm-6">
+//           <Link to="/register">
+//             {" "}
+//             <button
+//               type="button"
+//               class="btn btn-outline-primary"
+//               style={{ marginLeft: "140px" }}
+//             >
+//               Register
+//             </button>
+//           </Link>
+//         </div>
+//         <div class="col-sm-6">
+//           <Link to="/login">
+//             {" "}
+//             <button type="button" class="btn btn-outline-primary">
+//               Login
+//             </button>
+//           </Link>
+//         </div>
+//       </div>
+//       <br />
+//     </div>
+//   </div>
+// </div>
+// <div class="col-sm-3"></div>
+// </div>

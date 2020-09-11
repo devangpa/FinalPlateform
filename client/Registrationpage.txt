@@ -1,0 +1,629 @@
+import React, {Component} from 'react';
+import {Link, withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {registerUser} from '../../actions/authActions';
+import classnames from 'classnames';
+
+class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: '',
+      email: '',
+      password: '',
+      password2: '',
+
+      errors: {},
+      role: 'freelancer',
+    };
+  }
+
+  componentDidMount() {
+    // If logged in and user navigates to Register page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors,
+      });
+    }
+  }
+
+  onChange = (e) => {
+    this.setState({[e.target.id]: e.target.value});
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2,
+      role: this.state.role,
+    };
+    console.log(newUser);
+    this.props.registerUser(newUser, this.props.history);
+  };
+
+  render() {
+    const {errors} = this.state;
+
+    return (
+      <div className='container'>
+        <div
+          class='container'
+          style={{
+            width: '1200px',
+            height: '50px',
+            backgroundColor: '#0D3451',
+          }}
+        >
+          <div
+            class='container'
+            style={{
+              width: '300px',
+              height: '50px',
+
+              float: 'left',
+            }}
+          >
+            <img
+              src='https://i.ibb.co/j3Q67XD/Vork-Insta-monogram.png'
+              alt='dev'
+              border='0'
+              style={{height: '25px', width: '25px', marginTop: '10px'}}
+            />
+            <h6
+              style={{
+                marginTop: '-28px',
+                marginLeft: '26px',
+                color: '#FFFFFF',
+                fontFamily: 'Noto Sans',
+                letterSpacing: '2px',
+              }}
+            >
+              {' '}
+              ORKINSTA
+            </h6>
+            <h6
+              style={{
+                marginTop: '-10px',
+                marginLeft: '26px',
+                fontSize: '10px',
+                color: '#FFFFFF',
+                fontFamily: 'Noto Sans',
+                letterSpacing: '2px',
+              }}
+            >
+              {' '}
+              WE BUILD ENTREPRENEURS
+            </h6>
+          </div>
+          <div
+            class='container'
+            style={{
+              width: '800px',
+              height: '50px',
+              backgroundColor: '#0D3451',
+              float: 'right',
+              paddingLeft: '100px',
+            }}
+          >
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#0D3451',
+                float: 'left',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#0D3451',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  Home
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#0D3451',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#0D3451',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  AboutUs
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#0D3451',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#0D3451',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  Services
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#0D3451',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#0D3451',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  blog
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#0D3451',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            >
+              <div
+                class='container'
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#0D3451',
+                  height: '30px',
+                }}
+              >
+                {' '}
+                <h6
+                  style={{
+                    paddingTop: '3px',
+                    color: '#FFFFFF',
+                  }}
+                >
+                  contact
+                </h6>
+              </div>
+            </div>
+            <div
+              class='container'
+              style={{
+                width: '100px',
+                height: '50px',
+                backgroundColor: '#0D3451',
+                float: 'left',
+                marginLeft: '5px',
+              }}
+            ></div>
+          </div>
+        </div>
+        <div class='containar'>
+          <div
+            class='containar'
+            class='border-right'
+            style={{
+              alignSelf: 'center',
+              marginLeft: '16px',
+              marginTop: '70px',
+
+              borderRadius: '4px',
+              boxShadow:
+                '0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)',
+            }}
+          >
+            <div class='row'>
+              <div
+                class='col-6'
+                style={{
+                  height: '500px',
+                  backgroundColor: '#80AEFF',
+                  borderRadius: '1px solid black',
+                }}
+              >
+                <h1
+                  style={{
+                    color: '#FFFFFF',
+                    marginLeft: '100px',
+                    fontFamily: 'Montserrat',
+                    marginTop: '50px',
+                  }}
+                >
+                  REGISTRATION
+                </h1>
+                <br />
+                <h1
+                  style={{
+                    color: 'black',
+                    marginLeft: '100px',
+                    fontFamily: 'Montserrat',
+                    marginTop: '50px',
+                  }}
+                >
+                  Let's Get
+                </h1>
+                <br />
+                <h1
+                  style={{
+                    color: '#FFFFFF',
+                    marginLeft: '100px',
+                    fontFamily: 'Montserrat',
+                    marginTop: '-20px',
+                  }}
+                >
+                  <b>Started....</b>
+                </h1>
+                <br />
+                <h6
+                  style={{
+                    color: 'black',
+                    marginLeft: '100px',
+                    fontFamily: 'Montserrat',
+                    marginTop: '-20px',
+                  }}
+                >
+                  Fill your registration form and start your journey with us.
+                </h6>
+              </div>
+              <div
+                class='col-6'
+                style={{height: '500px', backgroundColor: '#FFFFFF'}}
+              >
+                <h4 style={{marginLeft: '200px'}}>
+                  Register <b>free account</b>
+                </h4>
+                <br />
+                <h6 style={{marginTop: '-20px', marginLeft: '220px'}}>
+                  or use following methods
+                </h6>
+                <br />
+                <h6 style={{marginTop: '-20px', marginLeft: '220px'}}>
+                  Already have account?
+                </h6>
+                <br />
+                <form onSubmit={this.onSubmit}>
+                  <div class='form-group'>
+                    <input
+                      type='email'
+                      style={{width: '500px'}}
+                      class='form-control'
+                      id='exampleInputEmail1'
+                      aria-describedby='emailHelp'
+                      placeholder='Name'
+                      onChange={this.onChange}
+                      value={this.state.name}
+                      error={errors.name}
+                      id='name'
+                      type='text'
+                      className={classnames('', {
+                        invalid: errors.name,
+                      })}
+                    />
+                    <span className='red-text'>{errors.name}</span>
+                  </div>
+
+                  <div class='form-group'>
+                    <input
+                      type='email'
+                      class='form-control'
+                      style={{width: '500px'}}
+                      id='exampleInputEmail1'
+                      aria-describedby='emailHelp'
+                      placeholder='Enter email'
+                      onChange={this.onChange}
+                      value={this.state.email}
+                      error={errors.email}
+                      id='email'
+                      type='email'
+                      className={classnames('', {
+                        invalid: errors.email,
+                      })}
+                    />
+                    <small id='emailHelp' class='form-text text-muted'>
+                      We'll never share your email with anyone else.
+                    </small>
+                    <span className='red-text'>{errors.email}</span>
+                  </div>
+                  <div class='form-group'>
+                    <input
+                      type='password'
+                      class='form-control'
+                      style={{width: '500px'}}
+                      id='exampleInputPassword1'
+                      placeholder='Password'
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      error={errors.password}
+                      id='password'
+                      type='password'
+                      className={classnames('', {
+                        invalid: errors.password,
+                      })}
+                    />
+                  </div>
+                  <div class='form-group'>
+                    <input
+                      type='password'
+                      class='form-control'
+                      id='exampleInputPassword1'
+                      style={{width: '500px'}}
+                      placeholder='Password'
+                      onChange={this.onChange}
+                      value={this.state.password2}
+                      error={errors.password2}
+                      id='password2'
+                      type='password'
+                      className={classnames('', {
+                        invalid: errors.password2,
+                      })}
+                    />
+                    <span className='red-text'>{errors.password2}</span>
+                  </div>
+
+                  <button
+                    type='submit'
+                    class='btn btn-primary'
+                    style={{
+                      backgroundColor: '#80AEFF',
+                      borderRadius: '20px',
+                      borderBlockColor: '#80AEFF',
+                      width: '500px',
+                    }}
+                  >
+                    SignUp
+                  </button>
+                </form>
+                <br />
+                <h6
+                  style={{
+                    fontSize: '10px',
+                    marginLeft: '60px',
+                    marginTop: '-10px',
+                  }}
+                >
+                  By registering you confrim that you accept the Terms an
+                  Condition and Privacy Policy
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors,
+});
+
+export default connect(mapStateToProps, {registerUser})(withRouter(Register));
+
+{
+  /* <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <Link to="/" className="btn-flat waves-effect">
+                  <i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;
+                  Back To Home
+                </Link>
+                <hr />
+                <img
+                  src="https://i.ibb.co/2qT9Cqp/dev.png"
+                  alt="dev"
+                  border="0"
+                  style={{ width: "200px", marginLeft: "150px" }}
+                />
+
+                <hr />
+                <div class="card">
+                  <div class="card-body">
+                    <form onSubmit={this.onSubmit}>
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          placeholder="Name"
+                          onChange={this.onChange}
+                          value={this.state.name}
+                          error={errors.name}
+                          id="name"
+                          type="text"
+                          className={classnames("", {
+                            invalid: errors.name
+                          })}
+                        />
+                        <span className="red-text">{errors.name}</span>
+                      </div>
+
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          placeholder="Enter email"
+                          onChange={this.onChange}
+                          value={this.state.email}
+                          error={errors.email}
+                          id="email"
+                          type="email"
+                          className={classnames("", {
+                            invalid: errors.email
+                          })}
+                        />
+                        <small id="emailHelp" class="form-text text-muted">
+                          We'll never share your email with anyone else.
+                        </small>
+                        <span className="red-text">{errors.email}</span>
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword1"
+                          placeholder="Password"
+                          onChange={this.onChange}
+                          value={this.state.password}
+                          error={errors.password}
+                          id="password"
+                          type="password"
+                          className={classnames("", {
+                            invalid: errors.password
+                          })}
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="exampleInputPassword1"
+                          placeholder="Password"
+                          onChange={this.onChange}
+                          value={this.state.password2}
+                          error={errors.password2}
+                          id="password2"
+                          type="password"
+                          className={classnames("", {
+                            invalid: errors.password2
+                          })}
+                        />
+                        <span className="red-text">{errors.password2}</span>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">
+                          selecttype
+                        </label>
+                        <select
+                          class="form-control"
+                          id="exampleFormControlSelect1"
+                          value={this.state.role}
+                          onChange={e => {
+                            this.setState({
+                              role: e.target.value
+                            });
+                          }}
+                        >
+                          <option value="freelancer">Freelancer</option>
+                          <option value="client">Client</option>
+                        </select>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">
+                        SignUp
+                      </button>
+                    </form>
+                    <br />
+                    <h6 style={{ fontSize: "15px", marginTop: "-10px" }}>
+                      By Clicking <b>Signup</b> Button You are Allow us to enale
+                      services you need to follow the rule as our communitity
+                      predefined
+                    </h6>
+                    <h6 style={{ fontSize: "10px" }}>
+                      ©2020 All Rights Reserved. VorkInsta private limited®.
+                      Terms of service, Privacy.
+                    </h6>
+                    <br />
+                    <h5 style={{ fontSize: "15px", marginTop: "-20px" }}>
+                      <b>Follow Us</b>
+                    </h5>{" "}
+                    &nbsp;
+                    <i
+                      class="fa fa-facebook-official"
+                      aria-hidden="true"
+                    ></i>{" "}
+                    &nbsp; <i class="fa fa-instagram" aria-hidden="true"></i>{" "}
+                    &nbsp;<i class="fa fa-twitter" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3"></div>
+        </div> */
+}
